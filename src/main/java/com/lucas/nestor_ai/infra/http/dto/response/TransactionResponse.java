@@ -3,21 +3,30 @@ package com.lucas.nestor_ai.infra.http.dto.response;
 import com.lucas.nestor_ai.application.dto.output.TransactionOutput;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record TransactionResponse(
         String id,
         String description,
         BigDecimal amount,
-        String category
+        String category,
+        String type,
+        LocalDate date,
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
 ) {
 
     public static TransactionResponse from(TransactionOutput saveOutput) {
         return new TransactionResponse(
                 saveOutput.id(),
                 saveOutput.description(),
-                saveOutput.amount().setScale(2, RoundingMode.HALF_UP),
-                saveOutput.category()
+                saveOutput.amount(),
+                saveOutput.category(),
+                saveOutput.type(),
+                saveOutput.date(),
+                saveOutput.createdAt(),
+                saveOutput.updatedAt()
         );
     }
 }
