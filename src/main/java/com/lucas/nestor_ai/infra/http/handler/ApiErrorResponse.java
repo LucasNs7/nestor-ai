@@ -1,0 +1,18 @@
+package com.lucas.nestor_ai.infra.http.handler;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+public record ApiErrorResponse(
+        LocalDateTime timestamp,
+        int status,
+        String error,
+        String message,
+        String path,
+        List<FieldErrorDetail> fieldErrors
+) {
+    public record FieldErrorDetail(
+            String field,
+            String message
+    ) {}
+}
