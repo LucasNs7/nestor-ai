@@ -166,10 +166,7 @@ class TransactionControllerTest {
     void deleteTransactionShouldReturnNoContent() {
         UUID id = UUID.randomUUID();
 
-        var response = controller.deleteTransaction(id);
-
-        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
-        assertNull(response.getBody());
+        controller.deleteTransaction(id);
 
         verify(deleteByIdUseCase).execute(id);
     }

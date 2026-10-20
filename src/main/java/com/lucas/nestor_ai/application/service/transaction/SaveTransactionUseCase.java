@@ -2,7 +2,6 @@ package com.lucas.nestor_ai.application.service.transaction;
 
 import com.lucas.nestor_ai.application.dto.input.TransactionInput;
 import com.lucas.nestor_ai.application.dto.output.TransactionOutput;
-import com.lucas.nestor_ai.domain.Transaction;
 import com.lucas.nestor_ai.domain.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,13 +15,7 @@ public class SaveTransactionUseCase {
     private final TransactionRepository repository;
 
     public TransactionOutput execute(TransactionInput input) {
-        var transaction = new Transaction(
-                input.description(),
-                input.amount(),
-                input.category(),
-                input.type(),
-                input.date()
-        );
+        var transaction = input.toDomain();
 
         return TransactionOutput.from(repository.save(transaction));
     }
