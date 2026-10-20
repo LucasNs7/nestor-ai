@@ -24,7 +24,7 @@ public class TransactionEntity {
     @Id
     private UUID id;
 
-    @Column(nullable = false, length = 200)
+    @Column(length = 200)
     private String description;
 
     @Column(nullable = false, precision = 19, scale = 2)
