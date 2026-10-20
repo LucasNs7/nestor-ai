@@ -4,7 +4,6 @@ import com.lucas.nestor_ai.application.dto.input.TransactionInput;
 import com.lucas.nestor_ai.domain.enums.Category;
 import com.lucas.nestor_ai.domain.enums.TransactionType;
 import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
