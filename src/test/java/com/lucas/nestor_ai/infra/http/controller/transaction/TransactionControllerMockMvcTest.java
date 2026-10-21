@@ -2,8 +2,8 @@ package com.lucas.nestor_ai.infra.http.controller.transaction;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.lucas.nestor_ai.application.dto.input.TransactionInput;
-import com.lucas.nestor_ai.application.dto.output.TransactionOutput;
+import com.lucas.nestor_ai.application.dto.input.transaction.TransactionInput;
+import com.lucas.nestor_ai.application.dto.output.transaction.TransactionOutput;
 import com.lucas.nestor_ai.application.exception.ConflictException;
 import com.lucas.nestor_ai.application.exception.ResourceNotFoundException;
 import com.lucas.nestor_ai.application.service.transaction.*;

@@ -1,7 +1,7 @@
 package com.lucas.nestor_ai.application.service.transaction;
 
-import com.lucas.nestor_ai.application.dto.input.TransactionInput;
-import com.lucas.nestor_ai.application.dto.output.TransactionOutput;
+import com.lucas.nestor_ai.application.dto.input.transaction.TransactionInput;
+import com.lucas.nestor_ai.application.dto.output.transaction.TransactionOutput;
 import com.lucas.nestor_ai.application.service.helper.TransactionFinderHelper;
 import com.lucas.nestor_ai.domain.TransactionId;
 import com.lucas.nestor_ai.domain.TransactionRepository;
