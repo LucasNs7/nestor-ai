@@ -1,48 +1,48 @@
 package com.lucas.nestor_ai.infra.http.controller.ai;
 
-import com.lucas.nestor_ai.application.service.ai.TranscribeAudioUseCase;
+import com.lucas.nestor_ai.application.service.ai.PrepareVoiceTransactionUseCase;
+import com.lucas.nestor_ai.infra.http.dto.request.TransactionRequest;
+import com.lucas.nestor_ai.infra.http.dto.response.ai.VoiceTransactionPreviewResponse;
+import com.lucas.nestor_ai.application.service.transaction.SaveTransactionUseCase;
+import com.lucas.nestor_ai.infra.http.dto.response.transaction.TransactionResponse;
 import com.lucas.nestor_ai.infra.http.helper.AudioValidatorHelper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/ai")
+@RequestMapping("/ai/transactions")
 public class TransactionAiController {
 
-    private final TranscribeAudioUseCase transcribeAudioUseCase;
+    private final PrepareVoiceTransactionUseCase prepareVoiceUseCase;
+    private final SaveTransactionUseCase saveTransactionUseCase;
     private final AudioValidatorHelper audioValidatorHelper;
 
     @PostMapping(
-            value = "/transcriptions",
+            value = "/voice",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
-            produces = "audio/mpeg"
+            produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Resource> transcribe(@RequestParam("file") MultipartFile file) {
-
+    @ResponseStatus(HttpStatus.OK)
+    public VoiceTransactionPreviewResponse prepareFromVoice(@RequestParam("file") MultipartFile file) {
         audioValidatorHelper.validate(file);
 
-        byte[] audio = transcribeAudioUseCase.execute(file.getResource());
+        return VoiceTransactionPreviewResponse.from(prepareVoiceUseCase.execute(file.getResource()));
+    }
 
-        ByteArrayResource resource = new ByteArrayResource(audio);
+    @PostMapping(
+            value = "/confirm",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    @ResponseStatus(HttpStatus.CREATED)
+    public TransactionResponse confirmAndSave(@Valid @RequestBody TransactionRequest request) {
+        var saved = saveTransactionUseCase.execute(request.toInput());
 
-        return ResponseEntity.status(HttpStatus.OK)
-                .contentType(MediaType.parseMediaType("audio/mpeg"))
-                .header(
-                        HttpHeaders.CONTENT_DISPOSITION,
-                        ContentDisposition.attachment()
-                                .filename("response.mp3")
-                                .build()
-                                .toString()
-                )
-                .contentLength(audio.length)
-                .body(resource);
+        return TransactionResponse.from(saved);
     }
 }

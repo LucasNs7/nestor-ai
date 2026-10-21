@@ -1,6 +1,6 @@
 package com.lucas.nestor_ai.infra.http.controller.transaction;
 
-import com.lucas.nestor_ai.application.dto.output.TransactionOutput;
+import com.lucas.nestor_ai.application.dto.output.transaction.TransactionOutput;
 import com.lucas.nestor_ai.application.service.transaction.*;
 import com.lucas.nestor_ai.domain.Transaction;
 import com.lucas.nestor_ai.domain.enums.Category;
@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

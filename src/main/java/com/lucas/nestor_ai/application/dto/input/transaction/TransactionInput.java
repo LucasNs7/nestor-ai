@@ -1,4 +1,4 @@
-package com.lucas.nestor_ai.application.dto.input;
+package com.lucas.nestor_ai.application.dto.input.transaction;
 
 import com.lucas.nestor_ai.domain.Transaction;
 import com.lucas.nestor_ai.domain.enums.Category;

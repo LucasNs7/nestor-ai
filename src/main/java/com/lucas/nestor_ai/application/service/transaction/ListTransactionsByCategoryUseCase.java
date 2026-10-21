@@ -1,6 +1,6 @@
 package com.lucas.nestor_ai.application.service.transaction;
 
-import com.lucas.nestor_ai.application.dto.output.TransactionOutput;
+import com.lucas.nestor_ai.application.dto.output.transaction.TransactionOutput;
 import com.lucas.nestor_ai.domain.TransactionRepository;
 import com.lucas.nestor_ai.domain.enums.Category;
 import lombok.RequiredArgsConstructor;

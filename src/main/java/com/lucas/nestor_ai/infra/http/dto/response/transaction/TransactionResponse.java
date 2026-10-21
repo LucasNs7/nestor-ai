@@ -1,6 +1,6 @@
-package com.lucas.nestor_ai.infra.http.dto.response;
+package com.lucas.nestor_ai.infra.http.dto.response.transaction;
 
-import com.lucas.nestor_ai.application.dto.output.TransactionOutput;
+import com.lucas.nestor_ai.application.dto.output.transaction.TransactionOutput;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

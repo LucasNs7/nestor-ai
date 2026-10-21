@@ -5,7 +5,7 @@ import com.lucas.nestor_ai.domain.enums.Category;
 import com.lucas.nestor_ai.domain.enums.TransactionType;
 import com.lucas.nestor_ai.infra.http.dto.request.TransactionPatchRequest;
 import com.lucas.nestor_ai.infra.http.dto.request.TransactionRequest;
-import com.lucas.nestor_ai.infra.http.dto.response.TransactionResponse;
+import com.lucas.nestor_ai.infra.http.dto.response.transaction.TransactionResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;

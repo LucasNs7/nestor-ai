@@ -1,4 +1,4 @@
-package com.lucas.nestor_ai.application.dto.output;
+package com.lucas.nestor_ai.application.dto.output.transaction;
 
 import com.lucas.nestor_ai.domain.Transaction;
 
