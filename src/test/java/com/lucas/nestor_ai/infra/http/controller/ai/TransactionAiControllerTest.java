@@ -46,7 +46,7 @@ class TransactionAiControllerTest {
     private SaveTransactionUseCase saveTransactionUseCase;
 
     @Test
-    void deveRetornarPreviaDaTransacaoAoEnviarAudio() throws Exception {
+    void shouldReturnTransactionPreviewWhenSendingAudio() throws Exception {
         var audio = new MockMultipartFile(
                 "file",
                 "transacao.mp3",
@@ -71,7 +71,7 @@ class TransactionAiControllerTest {
     }
 
     @Test
-    void deveSalvarTransacaoAposConfirmacao() throws Exception {
+    void shouldSaveTransactionAfterConfirmation() throws Exception {
         var category = Category.values()[0];
         var type = TransactionType.values()[0];
 
@@ -110,7 +110,7 @@ class TransactionAiControllerTest {
     }
 
     @Test
-    void naoDeveSalvarTransacaoComDadosInvalidos() throws Exception {
+    void shouldNotSaveTransactionWithInvalidData() throws Exception {
         var invalidRequest = """
                 {
                     "description": "",
