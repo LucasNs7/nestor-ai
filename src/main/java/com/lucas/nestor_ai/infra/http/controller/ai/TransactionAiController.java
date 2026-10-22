@@ -1,9 +1,9 @@
 package com.lucas.nestor_ai.infra.http.controller.ai;
 
 import com.lucas.nestor_ai.application.service.ai.PrepareVoiceTransactionUseCase;
+import com.lucas.nestor_ai.application.service.transaction.SaveTransactionUseCase;
 import com.lucas.nestor_ai.infra.http.dto.request.TransactionRequest;
 import com.lucas.nestor_ai.infra.http.dto.response.ai.VoiceTransactionPreviewResponse;
-import com.lucas.nestor_ai.application.service.transaction.SaveTransactionUseCase;
 import com.lucas.nestor_ai.infra.http.dto.response.transaction.TransactionResponse;
 import com.lucas.nestor_ai.infra.http.helper.AudioValidatorHelper;
 import jakarta.validation.Valid;

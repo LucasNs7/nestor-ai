@@ -3,7 +3,6 @@ package com.lucas.nestor_ai.application.service.ai;
 import com.lucas.nestor_ai.application.dto.input.ai.VoiceTransactionFields;
 import com.lucas.nestor_ai.application.dto.output.ai.VoiceTransactionPreviewOutput;
 import com.lucas.nestor_ai.application.exception.AudioProcessingException;
-
 import com.lucas.nestor_ai.domain.enums.Category;
 import com.lucas.nestor_ai.domain.enums.TransactionType;
 import lombok.RequiredArgsConstructor;
@@ -16,11 +15,7 @@ import org.springframework.stereotype.Service;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service

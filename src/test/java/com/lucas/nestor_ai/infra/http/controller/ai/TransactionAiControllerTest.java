@@ -3,13 +3,13 @@ package com.lucas.nestor_ai.infra.http.controller.ai;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lucas.nestor_ai.application.dto.output.ai.VoiceTransactionPreviewOutput;
-import com.lucas.nestor_ai.infra.http.helper.AudioValidatorHelper;
 import com.lucas.nestor_ai.application.dto.output.transaction.TransactionOutput;
 import com.lucas.nestor_ai.application.service.ai.PrepareVoiceTransactionUseCase;
 import com.lucas.nestor_ai.application.service.transaction.SaveTransactionUseCase;
 import com.lucas.nestor_ai.domain.enums.Category;
 import com.lucas.nestor_ai.domain.enums.TransactionType;
 import com.lucas.nestor_ai.infra.http.dto.request.TransactionRequest;
+import com.lucas.nestor_ai.infra.http.helper.AudioValidatorHelper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
