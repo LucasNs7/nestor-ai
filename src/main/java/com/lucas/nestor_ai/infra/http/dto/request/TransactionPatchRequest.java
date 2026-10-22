@@ -1,6 +1,6 @@
 package com.lucas.nestor_ai.infra.http.dto.request;
 
-import com.lucas.nestor_ai.application.dto.input.TransactionInput;
+import com.lucas.nestor_ai.application.dto.input.transaction.TransactionInput;
 import com.lucas.nestor_ai.domain.enums.Category;
 import com.lucas.nestor_ai.domain.enums.TransactionType;
 import jakarta.validation.constraints.DecimalMin;
